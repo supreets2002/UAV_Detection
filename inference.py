@@ -8,10 +8,10 @@ import glob
 import matplotlib.pyplot as plt
 import warnings
 warnings.filterwarnings('ignore')
-TEST_DIR = '/home/models/research/test/'
+TEST_DIR = '/home/pi/UAV_Detection/test/'
 SAMPLES = 10
 
-PATH_TO_SAVED_MODEL="/home/my_model/saved_model"
+PATH_TO_SAVED_MODEL="/home/pi/UAV_Detection/my_model/saved_model"
 
 print('Loading model...', end='')
 
@@ -21,7 +21,7 @@ detect_fn=tf.saved_model.load(PATH_TO_SAVED_MODEL)
 print('Done!')
 
 
-category_index=label_map_util.create_category_index_from_labelmap("/home/label_map.pbtxt",use_display_name=True)
+category_index=label_map_util.create_category_index_from_labelmap("/home/pi/UAV_Detection/label_map.pbtxt",use_display_name=True)
 
 # img=['/home/models/research/test/img (1).jpg']
 
@@ -77,4 +77,4 @@ for image_path in img:
     # print(image_path)
 
     nimg = Image.fromarray(image_np_with_detections)
-    nimg.save('/home/models/research/output/'+image_path[27:])
+    nimg.save('/home/pi/UAV_Detection/output/'+image_path[29:])
